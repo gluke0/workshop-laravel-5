@@ -10,7 +10,7 @@ class PizzaController extends Controller
 {
     public function getPizza()
     {
-        $pizza = Pizza::all();
+        $pizza = Pizza::All();
 
         return view('welcome', compact('pizza'));
     }

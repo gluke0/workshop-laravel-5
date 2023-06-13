@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\PizzaController;
+use App\Http\Controllers\Guest\PizzaController;
 
 /*
 |--------------------------------------------------------------------------
