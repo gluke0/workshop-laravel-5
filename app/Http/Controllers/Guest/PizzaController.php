@@ -12,6 +12,6 @@ class PizzaController extends Controller
     {
         $pizza = Pizza::All();
 
-        return view('welcome', compact('pizza'));
+        return view('pages.home', compact('pizza'));
     }
 }
