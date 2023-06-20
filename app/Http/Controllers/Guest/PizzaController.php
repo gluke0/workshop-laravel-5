@@ -18,7 +18,7 @@ class PizzaController extends Controller
     
         $pizza = Pizza::All();
 
-        return view('pages.index', compact('pizza'));
+        return view('pages.pizza.index', compact('pizza'));
     }
 
     /**
@@ -49,8 +49,8 @@ class PizzaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {   $pizza =  Pizza::findOrFail($id);
+        return view('pages.pizza.show',compact('pizza'));
     }
 
     /**
