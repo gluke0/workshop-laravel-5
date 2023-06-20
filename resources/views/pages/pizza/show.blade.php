@@ -1,8 +1,8 @@
 @extends('layout.app')
 
 @section('content')
-    <div class="container d-flex justify-content-center mt-5">
-        <a class="text-decoration-none" href="{{ route('pizza.index') }}"><i class="fa-solid fa-arrow-left"></i></a>
+    <div class="container d-flex justify-content-center mt-5 flex-column m-auto align-items-center">
+        <a class="text-decoration-none mb-4" href="{{ route('pizza.index') }}"><i class="fa-solid fa-arrow-left fs-1"></i></a>
 
         <div class="card col-3 ">
 

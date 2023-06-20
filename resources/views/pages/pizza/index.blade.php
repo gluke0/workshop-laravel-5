@@ -40,9 +40,10 @@
             </div>
         </a>
 
-        <button type="button" class="btn btn-danger bg-danger-subtle text-danger me-2 mb-2" data-bs-toggle="modal" data-bs-target="#deletModal">
+        <button type="button" class="btn btn-danger bg-danger-subtle text-danger mx-1 mb-2" data-bs-toggle="modal" data-bs-target="#deletModal">
             <i class="fa-regular fa-trash-can text-danger"></i>
-          </button>
+        </button>
+
           <div class="modal fade" id="deletModal" tabindex="-1" aria-labelledby="deletModal" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -56,6 +57,7 @@
                   </div>
                   After deletion, it will no longer be possible to recover the pizza.
                 </div>
+
                 <div class="modal-footer justify-content-start">
                   <form action="{{ route('pizza.destroy', $item) }}" method="POST">
                     @csrf
@@ -70,6 +72,7 @@
                     Cancel
                   </button>
                 </div>
+                
               </div>
             </div>
         </div>
