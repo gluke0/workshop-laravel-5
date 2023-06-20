@@ -15,7 +15,7 @@ class PizzaController extends Controller
      */
     public function index()
     {
-    
+
         $pizza = Pizza::All();
 
         return view('pages.pizza.index', compact('pizza'));
@@ -66,8 +66,9 @@ class PizzaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {   $pizza =  Pizza::findOrFail($id);
-        return view('pages.pizza.show',compact('pizza'));
+    {
+        $pizza =  Pizza::findOrFail($id);
+        return view('pages.pizza.show', compact('pizza'));
     }
 
     /**
@@ -78,7 +79,8 @@ class PizzaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pizza =  Pizza::findOrFail($id);
+        return view('pages.pizza.edit', compact('pizza'));
     }
 
     /**
@@ -88,9 +90,23 @@ class PizzaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Pizza $pizza)
     {
-        //
+        $request->validate(
+            [
+                'name' => 'required|unique:pizza',
+                'price' => 'required',
+            ],
+            [
+                'name.required' => 'Il nome della pizza è obbligatorio',
+                'name.unique' => 'La pizza è già nel menu',
+                'price.required' => 'La pizza non può essere gratis',
+            ]
+        );
+
+        $form_data = $request->all();
+        $pizza->update($form_data);
+        return redirect()->route('pizza.index');
     }
 
     /**
