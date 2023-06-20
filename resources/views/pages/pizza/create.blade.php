@@ -4,9 +4,9 @@
 
 <div class="container d-flex justify-content-center mt-5">
 
-<a class="text-decoration-none" href="{{route ('pizza.index')}}"><i class="fa-solid fa-arrow-left"></i></a>
+<a class="text-decoration-none" href="{{route ('pizza.index')}}"><i class="fa-solid fa-arrow-left fs-1 me-4 mt-3"></i></a>
 
-<h1 class="text-uppercase text-danger">Make your own pizza</h1>
+<h1 class="text-uppercase text-danger mt-3">Make your own pizza</h1>
 
 <form action=" {{ route('pizza.store') }} " method="POST" class="row">
 
@@ -45,5 +45,6 @@
     </div>
     <button type="submit" class="btn btn-primary btn-outline-light my-4 col-2 mx-auto text-uppercase"><strong> create </strong></button>
 </form>
+
 
 @endsection
