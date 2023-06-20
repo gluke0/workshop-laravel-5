@@ -39,7 +39,24 @@ class PizzaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate(
+            [
+                'name' => 'required|unique:pizza',
+                'price' => 'required',
+            ],
+            [
+                'name.required' => 'Il nome della pizza è obbligatorio',
+                'name.unique' => 'La pizza è già nel menu',
+                'price.required' => 'La pizza non può essere gratis',
+            ]
+        );
+
+        $form_data = $request->all();
+        $newPizza = new Pizza();
+        $newPizza->fill($form_data);
+        $newPizza->save();
+
+        return redirect()->route('pizza.index');
     }
 
     /**
