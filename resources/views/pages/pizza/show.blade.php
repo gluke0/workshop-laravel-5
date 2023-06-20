@@ -1,5 +1,7 @@
 @extends('layout.app')
+
 @section('content')
+
 <div class="container d-flex justify-content-center mt-5">
 <a class="text-decoration-none" href="{{route ('pizza.index')}}"><i class="fa-solid fa-arrow-left"></i></a>
 

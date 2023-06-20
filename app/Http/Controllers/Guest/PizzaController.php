@@ -28,7 +28,7 @@ class PizzaController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.pizza.create');
     }
 
     /**

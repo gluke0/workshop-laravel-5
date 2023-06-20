@@ -38,13 +38,15 @@
             </p>
 
         </div>
-
     </a>
     </div>
-@endforeach
 
+@endforeach
 
 
 </div>
 
+<div class="d-flex justify-content-center mt-3 mb-5 ">
+    <button class="text-uppercase btn btn-primary"><a class="text-uppercase text-white text-decoration-none" href="{{ route('pizza.create') }}"> create pizza </a> </button>
+</div>
 @endsection
