@@ -18,6 +18,11 @@ class Pizza extends Model
         'calories',
         'vegan',
         'available',
-        
+
     ];
+
+    public function ingredients()
+    {
+        return $this->belongsToMany(Ingredient::class);
+    }
 }
