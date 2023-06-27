@@ -6,7 +6,7 @@
 
 <a class="text-decoration-none" href="{{route ('pizza.index')}}"><i class="fa-solid fa-arrow-left fs-1 me-4 mt-3"></i></a>
 
-<h1 class="text-uppercase text-danger mt-3">Make your own pizza</h1>
+<h1 class="text-uppercase text-danger mt-3 me-5">Make your own pizza</h1>
 
 <form action=" {{ route('pizza.store') }} " method="POST" class="row">
 
@@ -36,15 +36,18 @@
         <input type="text" id="input-calories" class="form-control" name="calories" placeholder="calories"> 
     </div>
     
-    <div class="form-group mt-3 col-6">
-        @foreach ($ingredients as $elem)
-            <div>
-                <label for="input-ingredients-{{ $elem->id }}" class="form-label text-white">{{ $elem->name }}</label>
-                <input type="checkbox" id="input-ingredients-{{ $elem->id }}" value="{{ $elem->id }}" class="" name="ingredients[]" placeholder="type" {{ in_array( $elem->id, old('ingredients', [] ) ) ? 'checked' : '' }}> 
-            </div>
-        @endforeach
+    <div class="form-group mt-3">
+        <p class="text-white">Ingredients:</p>
+        <div class="d-flex flex-wrap">
+            @foreach ($ingredients as $elem)
+                <div class="me-4">
+                    <label for="input-ingredients-{{ $elem->id }}" class="form-label text-white">{{ $elem->name }}</label>
+                    <input type="checkbox" id="input-ingredients-{{ $elem->id }}" value="{{ $elem->id }}" class="" name="ingredients[]" placeholder="type" {{ in_array( $elem->id, old('ingredients', [] ) ) ? 'checked' : '' }}> 
+                </div>
+            @endforeach
+        </div>
     </div>
-    <button type="submit" class="btn btn-primary btn-outline-light my-4 col-2 mx-auto text-uppercase"><strong> create </strong></button>
+    <button type="submit" class="btn btn-primary btn-outline-light my-4 mx-auto text-uppercase"><strong> create </strong></button>
 </form>
 
 
