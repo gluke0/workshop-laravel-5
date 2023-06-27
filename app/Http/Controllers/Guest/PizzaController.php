@@ -46,11 +46,13 @@ class PizzaController extends Controller
             [
                 'name' => 'required|unique:pizza',
                 'price' => 'required',
+                'ingredient' => 'nullable|exists:ingredients,id'
             ],
             [
                 'name.required' => 'Il nome della pizza è obbligatorio',
                 'name.unique' => 'La pizza è già nel menu',
                 'price.required' => 'La pizza non può essere gratis',
+                 
             ]
         );
 
@@ -106,6 +108,7 @@ class PizzaController extends Controller
             [
                 'name' => 'required|unique:pizza',
                 'price' => 'required',
+                'ingredient' => 'nullable|exists:ingredients,id'
             ],
             [
                 'name.required' => 'Il nome della pizza è obbligatorio',
