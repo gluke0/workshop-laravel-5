@@ -35,14 +35,7 @@
         <label for="input-calories" class="form-label text-white">Calories:</label>
         <input type="text" id="input-calories" class="form-control" name="calories" placeholder="calories"> 
     </div>
-    <div class="form-group mt-3 col-6">
-        <label for="input-vegan" class="form-label text-white">Vegan:</label>
-        <input type="checkbox" id="input-vegan" class="" name="vegan" placeholder="type">
-    </div>
-    <div class="form-group mt-3 col-6">
-        <label for="input-available" class="form-label text-white">Available:</label>
-        <input type="checkbox" id="input-available" class="" name="available" placeholder="type">
-    </div>
+    
     <div class="form-group mt-3 col-6">
         @foreach ($ingredients as $elem)
             <div>

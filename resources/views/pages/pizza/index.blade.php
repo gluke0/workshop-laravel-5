@@ -22,20 +22,6 @@
                 <p class="card-text"><strong>Pizza:</strong> {{ $item->name }}</p>
                 <p class="card-text"><strong>Prezzo:</strong> {{ $item->price }} &euro;</p>
                 <p class="card-text"><strong>Calorie:</strong> {{ $item->calories }} Kcal</p>
-                <p class="card-text"><strong>Vegana:</strong>
-                    @if ($item->vegan == 0)
-                    No 
-                @else 
-                    Yes
-                @endif
-                </p>
-                <p class="card-text"><strong>Disponibile:</strong>
-                    @if ($item->available == 0)
-                    No 
-                @else 
-                    Yes
-                @endif
-                </p>
 
             </div>
         </a>
