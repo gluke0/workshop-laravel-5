@@ -17,3 +17,4 @@ use App\Http\Controllers\Guest\PizzaController;
 
 
 Route::resource('/pizza', PizzaController::class);
+Route::resource('/', PizzaController::class);
