@@ -43,8 +43,17 @@
         <label for="input-available" class="form-label text-white">Available:</label>
         <input type="checkbox" id="input-available" class="" name="available" placeholder="type">
     </div>
+    <div class="form-group mt-3 col-6">
+        @foreach ($ingredients as $elem)
+            <div>
+                <label for="input-ingredients-{{ $elem->id }}" class="form-label text-white">{{ $elem->name }}</label>
+                <input type="checkbox" id="input-ingredients-{{ $elem->id }}" value="{{ $elem->id }}" class="" name="ingredients[]" placeholder="type" {{ in_array( $elem->id, old('ingredients', [] ) ) ? 'checked' : '' }}> 
+            </div>
+        @endforeach
+    </div>
     <button type="submit" class="btn btn-primary btn-outline-light my-4 col-2 mx-auto text-uppercase"><strong> create </strong></button>
 </form>
+
 
 
 @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Guest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Pizza;
+use App\Models\Ingredient;
 
 class PizzaController extends Controller
 {
@@ -28,7 +29,9 @@ class PizzaController extends Controller
      */
     public function create()
     {
-        return view('pages.pizza.create');
+        $ingredients = Ingredient::All();
+
+        return view('pages.pizza.create', compact ('ingredients'));
     }
 
     /**
@@ -55,6 +58,10 @@ class PizzaController extends Controller
         $newPizza = new Pizza();
         $newPizza->fill($form_data);
         $newPizza->save();
+
+        if ($request->has ('ingredients')){
+            $newPizza->ingredients()->attach($request->ingredients);
+        }
 
         return redirect()->route('pizza.index');
     }

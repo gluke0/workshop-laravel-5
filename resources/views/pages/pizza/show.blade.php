@@ -32,6 +32,13 @@
 
             </div>
 
+            @if( count($pizza->ingredients) > 0 )
+                @foreach ( $pizza->ingredients as $elem )
+                    <div> {{ $elem->name }} </div>
+                @endforeach 
+                @else <p class="p-3">Non ci sono ingredienti specificati</p>
+            @endif
+
             <button class="text-uppercase btn btn-primary"><a class="text-uppercase text-white text-decoration-none"
                     href="{{ route('pizza.edit', $pizza) }}"> edit pizza </a> </button>
 
