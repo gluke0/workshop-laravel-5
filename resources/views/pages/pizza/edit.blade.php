@@ -48,6 +48,36 @@
                 <label for="input-available" class="form-label text-white">Available:</label>
                 <input type="checkbox" id="input-available" class="" name="available" placeholder="type">
             </div>
+
+             {{-- Checkbox ingredients --}}
+             <div class="form-group my-3">
+                <div class="text-white">
+                    Ingredienti utilizzati:
+                </div>
+                <div class="d-flex flex-wrap">
+                    
+                    @foreach ($ingredients as $elem)
+                        <div class="me-4">
+                            <label for="input-ingredients-{{$elem->id}}" class="form-label text-white">
+                                {{$elem->name}}:
+                            </label>
+
+                            @if ($errors->any())
+
+                                <input type="checkbox" id="input-ingredients-{{$elem->id}}" value="{{$elem->id}}" name="ingredients[]" {{ in_array( $elem->id, old('ingredients', [] ) ) ? 'checked' : '' }}>
+                                
+                            @else
+                                {{-- nessun errore --}}
+                                <input type="checkbox" id="input-ingredients-{{$elem->id}}" value="{{$elem->id}}" name="ingredients[]" {{ $pizza->ingredients->contains($elem) ? 'checked' : '' }}>
+                                
+                            @endif
+                            
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
+
             <button type="submit" class="text-uppercase btn btn-primary">Edit</button>
         </form>
     @endsection

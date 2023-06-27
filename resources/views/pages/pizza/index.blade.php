@@ -40,11 +40,11 @@
             </div>
         </a>
 
-        <button type="button" class="btn btn-danger bg-danger-subtle text-danger mx-1 mb-2" data-bs-toggle="modal" data-bs-target="#deletModal">
+        <button type="button" class="btn btn-danger bg-danger-subtle text-danger mx-1 mb-2" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$item->id}}">
             <i class="fa-regular fa-trash-can text-danger"></i>
         </button>
 
-          <div class="modal fade" id="deletModal" tabindex="-1" aria-labelledby="deletModal" aria-hidden="true">
+          <div class="modal fade" id="deleteModal-{{$item->id}}" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -60,12 +60,15 @@
 
                 <div class="modal-footer justify-content-start">
                   <form action="{{ route('pizza.destroy', $item) }}" method="POST">
+
                     @csrf
                     @method('DELETE')
+
                     <button type="submit" class="btn btn-danger bg-danger-subtle text-danger me-2">
                       <i class="fa-regular fa-trash-can text-danger me-2"></i>
                       Delete
                     </button>
+
                   </form>
                   <button type="button" class="btn btn-secondary bg-secondary-subtle text-secondary me-2" data-bs-toggle="modal" data-bs-dismiss="modal">
                     <i class="fa-solid fa-xmark text-secondary me-2"></i>

@@ -87,7 +87,10 @@ class PizzaController extends Controller
     public function edit($id)
     {
         $pizza =  Pizza::findOrFail($id);
-        return view('pages.pizza.edit', compact('pizza'));
+
+        $ingredients = Ingredient::All();
+
+        return view('pages.pizza.edit', compact('pizza', 'ingredients'));
     }
 
     /**
@@ -113,6 +116,16 @@ class PizzaController extends Controller
 
         $form_data = $request->all();
         $pizza->update($form_data);
+
+        //Controllo Technologies aggiornati
+        if ($request->has('ingredients')) {
+            $pizza->ingredients()->sync($request->ingredients);
+        }
+        else {
+            $pizza->ingredients()->sync([]);
+        }
+
+
         return redirect()->route('pizza.index');
     }
 
@@ -124,6 +137,9 @@ class PizzaController extends Controller
      */
     public function destroy(Pizza $pizza)
     {
+
+        $pizza->ingredients()->sync([]);
+
         $pizza->delete();
 
         return redirect()->route('pizza.index');
